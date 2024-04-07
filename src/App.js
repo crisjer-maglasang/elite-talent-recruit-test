@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRoutes } from "react-router-dom";
+import routes from "./routing/routes";
+import {
+  ConfigCatProvider,
+  createConsoleLogger,
+  LogLevel,
+} from "configcat-react";
 
 function App() {
+  const routing = useRoutes(routes());
+  const logger = createConsoleLogger(LogLevel.Off);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConfigCatProvider
+      sdkKey={process.env.REACT_APP_CONFIG_CAT_SDK_KEY}
+      options={{ logger, pollIntervalSeconds: 300 }}
+    >
+      {routing}
+    </ConfigCatProvider>
   );
 }
 
