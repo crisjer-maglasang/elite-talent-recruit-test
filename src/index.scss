@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "assets/scss/functions";
+@import "assets/scss/toast";
+
+@layer components {
+  .shiny-theme {
+    /* Your custom styles */
+    background-color: #016afe; /* Coral color */
+    color: #ffffff; /* White text color */
+  }
+  .cloudy-theme {
+    /* Your custom styles */
+    background-color: #5f5f60; /* Coral color */
+    color: #202020; /* White text color */
+  }
+  .rainy-theme {
+    /* Your custom styles */
+    background-color: #000000; /* Coral color */
+    color: #ffffff; /* White text color */
+  }
+}

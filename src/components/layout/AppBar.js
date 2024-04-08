@@ -11,7 +11,7 @@ const AppBar = ({ getCityNameToGeocode, isSearchLoading }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    if (searchQuery) {
+    if (searchQuery !== undefined && searchQuery !== "") {
       getCityNameToGeocode({ q: searchQuery });
     }
   }, [searchQuery, getCityNameToGeocode]);

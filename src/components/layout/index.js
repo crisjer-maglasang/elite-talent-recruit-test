@@ -7,3 +7,5 @@ export { default as TopNav } from "./TopNav";
 export { default as Toasts } from "./Toasts";
 
 export { default as Layout } from "./Layout";
+
+export { default as StartPage } from "./StartPage";
