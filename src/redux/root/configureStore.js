@@ -4,7 +4,7 @@ import createRootReducer from "./root-reducer";
 import sagas from "./sagas";
 import persistState from "./persistState";
 import { composeWithDevToolsDevelopmentOnly } from "@redux-devtools/extension";
-import { saveState } from "./localStorage";
+// import { saveState } from "./localStorage";
 
 const configureStore = (initialState = {}) => {
   const persistedState = persistState(initialState);
@@ -16,9 +16,9 @@ const configureStore = (initialState = {}) => {
     composeWithDevToolsDevelopmentOnly(applyMiddleware(sagaMiddleware))
   );
 
-  store.subscribe(() => {
-    saveState(store.getState().auth);
-  });
+  // store.subscribe(() => {
+  //   saveState(store.getState().auth);
+  // });
 
   sagaMiddleware.run(sagas);
 

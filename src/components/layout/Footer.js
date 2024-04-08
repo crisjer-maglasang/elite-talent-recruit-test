@@ -1,10 +1,21 @@
-import { FaTwitter, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaFacebook,
+  FaInstagram,
+  FaGithub,
+  FaGlobe,
+} from "react-icons/fa";
 
 const socialLinks = [
   { name: "Facebook", icon: <FaFacebook />, link: "#" },
   { name: "Instagram", icon: <FaInstagram />, link: "#" },
   { name: "X", icon: <FaTwitter />, link: "#" },
   { name: "GitHub", icon: <FaGithub />, link: "#" },
+  {
+    name: "Website",
+    icon: <FaGlobe />,
+    link: "https://www.elitetalentrecruit.com/",
+  },
 ];
 
 const Footer = () => {
@@ -17,7 +28,7 @@ const Footer = () => {
         <div className="flex justify-center space-x-6 md:order-2">
           {socialLinks.map((linkItem) => (
             <a
-              href="linkItem.link"
+              href={linkItem.link}
               key={linkItem.name}
               className="text-gray-400 hover:text-gray-500"
             >
