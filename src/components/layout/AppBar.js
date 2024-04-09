@@ -22,14 +22,14 @@ const AppBar = ({ getCityNameToGeocode, isSearchLoading }) => {
 
   return (
     <header className="bg-white border-b shadow-sm">
-      <div className="relative flex justify-between items-center px-8">
+      <div className="relative flex flex-col sm:flex-row sm:justify-between items-center px-8 py-2">
         <Link to="/" className="flex items-center gap-2">
           <img
             className="block w-auto h-16"
             src={logo}
             alt="Elite Talent Recruit"
           />
-          <p className="text-lg font-bold">Weather Information</p>
+          <p className="text-lg font-bold text-center">Weather Information</p>
         </Link>
         {isSearchLoading ? (
           <Loader />

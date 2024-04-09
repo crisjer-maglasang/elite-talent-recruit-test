@@ -42,6 +42,7 @@ const getAuthorizationHeaderValue = () => {
 };
 
 const createMethod = async (config) => {
+  console.log("yyy");
   const response = await axios(config);
   return getResponseData(response);
 };

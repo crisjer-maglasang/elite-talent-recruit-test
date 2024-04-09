@@ -3,17 +3,17 @@ import { createRequestSaga } from "@/redux/helpers";
 import Api from "@/api";
 import { addToastsAction } from "@/redux/toasts";
 import { mapErrorToastsData } from "@/lib/api";
-import { requestCurrentWeatherAsync } from "./actions";
+import { requestWeatherForecastAsync } from "./actions";
 
-function* requestCurrentWeatherSaga({ payload }) {
+function* requestWeatherForecastSaga({ payload }) {
   try {
     const response = yield call(
-      Api.requestCurrentWeatherData,
+      Api.requestWeatherForecastData,
       { ...payload },
       { withCredentials: false }
     );
 
-    yield put(requestCurrentWeatherAsync.success(response));
+    yield put(requestWeatherForecastAsync.success(response));
   } catch (error) {
     yield put(addToastsAction(mapErrorToastsData(error)));
 
@@ -21,12 +21,12 @@ function* requestCurrentWeatherSaga({ payload }) {
   }
 }
 
-export function* currentWeatherWatcher() {
+export function* weatherForecastWatcher() {
   yield takeLatest(
-    requestCurrentWeatherAsync.request.type,
-    createRequestSaga(requestCurrentWeatherSaga, {
-      keyNew: "requestCurrentWeather",
-      errKey: "requestCurrentWeather",
+    requestWeatherForecastAsync.request.type,
+    createRequestSaga(requestWeatherForecastSaga, {
+      keyNew: "requestWeatherForecast",
+      errKey: "requestWeatherForecast",
       write: true,
     })
   );

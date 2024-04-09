@@ -1,6 +1,8 @@
-import { requestCurrentWeatherAsync } from "@/redux/modules/CurrentWeather";
+import {
+  requestCurrentWeatherAsync,
+  weatherDataSelector,
+} from "@/redux/modules/CurrentWeather";
 import { locationDataSelector } from "@/redux/modules/LocationReverse";
-import { weatherDataSelector } from "@/redux/modules/CurrentWeather";
 import { currentWeatherDataLoadingSelector } from "@/redux/loading";
 import { connect } from "react-redux";
 import { useEffect } from "react";
@@ -29,15 +31,8 @@ const MainView = ({
     ? weatherData.weather[0]
     : "";
 
-  const {
-    temp_min,
-    temp_max,
-    temp,
-    feels_like,
-    pressure,
-    humidity,
-    visibility,
-  } = weatherData.weather ? weatherData.main : "";
+  const { temp_min, temp_max, temp, pressure, humidity, feels_like } =
+    weatherData.weather ? weatherData.main : "";
 
   return (
     <div
@@ -71,12 +66,12 @@ const MainView = ({
           </div>
           <div className="py-16">
             <div className="text-lg font-medium flex flex-col gap-4">
-              <p>Temperature: {temp}F</p>
-              <p>Max Temperature: {temp_max}F</p>
-              <p>Min Temperature: {temp_min}F</p>
-              <p>Pressure: {pressure}F</p>
-              <p>Humidity: {humidity}F</p>
-              <p>Visibility: {visibility}F</p>
+              <p>Temperature: {temp} F</p>
+              <p>Max Temperature: {temp_max} F</p>
+              <p>Min Temperature: {temp_min} F</p>
+              <p>Feels Like: {feels_like} F</p>
+              <p>Pressure: {pressure} Pa</p>
+              <p>Humidity: {humidity} %</p>
             </div>
           </div>
         </div>
