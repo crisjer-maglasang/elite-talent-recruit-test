@@ -1,4 +1,4 @@
-import { toast, toastType, Message, ToastContainer } from "@/components";
+import { toast, Message, ToastContainer } from "@/components";
 import { toastsSelector, flushToastsAction } from "@/redux/toasts";
 import { useLayoutEffect } from "react";
 import { connect } from "react-redux";
@@ -12,7 +12,7 @@ const Toasts = ({ toasts, flushToasts }) => {
     toasts.forEach(({ type, message, details }) => {
       toast(<Message message={message} details={details} />, {
         type,
-        ...(type === toastType.ERROR || !!details
+        ...(type === "error" || !!details
           ? {
               autoClose: false,
               closeOnClick: false,

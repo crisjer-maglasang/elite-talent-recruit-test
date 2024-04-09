@@ -40,8 +40,7 @@ const MainView = ({
         "grow flex items-center justify-center ",
         main === "Clouds" && "cloudy-theme",
         main === "Rain" && "rainy-theme",
-        main === "Clear" && "shiny-theme",
-        isDataLoading && ""
+        main === "Clear" && "shiny-theme"
       )}
     >
       {isDataLoading ? (

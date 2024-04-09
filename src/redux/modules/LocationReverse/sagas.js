@@ -13,6 +13,19 @@ function* getCityNameToGeocodeSaga({ payload }) {
       { withCredentials: false }
     );
 
+    if (response.length === 0) {
+      yield put(
+        addToastsAction([
+          {
+            type: "error",
+            message: "Unknown location name",
+            details:
+              "We can't find the matched location. Please input the correct name",
+          },
+        ])
+      );
+    }
+
     yield put(getCityNameToGeocodeAsync.success(Mapper.getGeoData(response)));
   } catch (error) {
     yield put(addToastsAction(mapErrorToastsData(error)));

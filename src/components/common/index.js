@@ -1,4 +1,4 @@
-export { toast, toastType, Message, ToastContainer } from "./ToastContainer";
+export { toast, Message, ToastContainer } from "./ToastContainer";
 
 export { CustomInput } from "./Form";
 

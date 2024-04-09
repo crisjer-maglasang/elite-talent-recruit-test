@@ -6,7 +6,6 @@ import { mapErrorToastsData } from "@/lib/api";
 import { requestWeatherHistoryAsync } from "./actions";
 
 function* requestWeatherHistorySaga({ payload }) {
-  console.log("sss");
   try {
     const { data } = payload;
     const response = yield call(

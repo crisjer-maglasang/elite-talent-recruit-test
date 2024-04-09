@@ -1,8 +1,6 @@
 import { toast } from "react-toastify";
 
-const toastType = toast.TYPE;
-
-export { toast, toastType };
+export { toast };
 
 export { default as Message } from "./Message";
 

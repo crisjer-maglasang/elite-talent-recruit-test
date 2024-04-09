@@ -1,14 +1,13 @@
-import { toastType } from "@/components/common";
-import { ERROR_500 } from "@/lib/validations";
-
 export const mapErrorToastsData = (error) => {
-  const { data: { errors = [] } = {}, status } = error?.response ?? {};
+  const { message, name } = error ?? {};
 
-  return errors.map(({ detail: message }) => ({
-    type: toastType.ERROR,
-    message: Number(status) >= 500 ? ERROR_500 : message,
-    details: null,
-  }));
+  return [
+    {
+      type: "error",
+      message: message,
+      details: name,
+    },
+  ];
 };
 
 export const mapSuccessToastsData = (response) => {
@@ -16,7 +15,7 @@ export const mapSuccessToastsData = (response) => {
 
   return [
     {
-      type: toastType.SUCCESS,
+      type: "success",
       message: message,
       details: null,
     },
