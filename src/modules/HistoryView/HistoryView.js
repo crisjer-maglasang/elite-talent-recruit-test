@@ -6,11 +6,6 @@ import { locationDataSelector } from "@/redux/modules/LocationReverse";
 import { weatherHistoryDataLoadingSelector } from "@/redux/loading";
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import { Loader } from "@/components/common";
-import classNames from "classnames";
-import cloud from "../../assets/cloud.png";
-import sun from "../../assets/sun.png";
-import rain from "../../assets/rain.png";
 
 const HistoryView = ({
   getWeatherHistoryData,
@@ -27,57 +22,22 @@ const HistoryView = ({
     }
   }, [location, getWeatherHistoryData]);
 
-  // const { main, description } = weatherData.weather
-  //   ? weatherData?.weather[0]
-  //   : "";
-
-  // const { temp_min, temp_max, temp, pressure, humidity, feels_like } =
-  //   weatherData?.weather ? weatherData.main : "";
-
   return (
-    // <div
-    //   className={classNames(
-    //     "grow flex items-center justify-center ",
-    //     main === "Clouds" && "cloudy-theme",
-    //     main === "Rain" && "rainy-theme",
-    //     main === "Clear" && "shiny-theme",
-    //     isDataLoading && ""
-    //   )}
-    // >
-    //   {isDataLoading ? (
-    //     <Loader className="w-64" />
-    //   ) : (
-    //     <div className="flex gap-4">
-    //       <div className="px-4 flex flex-col items-center justify-center">
-    //         <img
-    //           className="block w-auto h-64"
-    //           src={
-    //             main === "Clouds"
-    //               ? cloud
-    //               : main === "Clear"
-    //               ? sun
-    //               : main === "Rain"
-    //               ? rain
-    //               : ""
-    //           }
-    //           alt="Elite Talent Recruit"
-    //         />
-    //         <p className="text-3xl">{description}</p>
-    //       </div>
-    //       <div className="py-16">
-    //         <div className="text-lg font-medium flex flex-col gap-4">
-    //           <p>Temperature: {temp} F</p>
-    //           <p>Max Temperature: {temp_max} F</p>
-    //           <p>Min Temperature: {temp_min} F</p>
-    //           <p>Feels Like: {feels_like} F</p>
-    //           <p>Pressure: {pressure} Pa</p>
-    //           <p>Humidity: {humidity} %</p>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   )}
-    // </div>
-    <div>History</div>
+    <div className="grow flex flex-col justify-center items-center text-center px-4">
+      <div className="text-2xl font-medium text-gray-400">
+        Sorry, free version of history api call doesn't exist. We have to pay to
+        use this functionality
+      </div>
+      <div className="mt-4 text-gray-400">
+        please see{" "}
+        <a
+          className=" text-blue-400"
+          href="http://openweathermap.org/faq#error401"
+        >
+          http://openweathermap.org/faq#error401
+        </a>
+      </div>
+    </div>
   );
 };
 

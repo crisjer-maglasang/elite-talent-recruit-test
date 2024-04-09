@@ -7,10 +7,9 @@ import { requestWeatherHistoryAsync } from "./actions";
 
 function* requestWeatherHistorySaga({ payload }) {
   try {
-    const { data } = payload;
     const response = yield call(
       Api.requestWeatherHistoryData,
-      Mapper.prepareDataForRequestWeatherHistory(data),
+      Mapper.prepareDataForRequestWeatherHistory(payload),
       { withCredentials: false }
     );
 
